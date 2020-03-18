@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="United2Heal.Views.Login">
+<ContentPage.Content>
+    <Grid x:Name="Grid" RowSpacing="0" ColumnSpacing="0" BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+
+<Frame x:Name="LoginFrame" HasShadow="False" BorderColor="Black" Grid.Row="1" Grid.Column="1" >
+    <Label x:Name="LoginTitle" Text="Login" TextColor="Black" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+</Frame>
+
+<Frame x:Name="PictureFrame" HasShadow="False" BorderColor="Black" Grid.Row="2" Grid.Column="1" CornerRadius="20" Margin="20" Padding="0" IsClippedToBounds="True">
+    <Image x:Name="Pic" Source="" Aspect="Fill"/>
+</Frame>
+<Frame x:Name="TextFrame" HasShadow="False" Grid.Row="3" Grid.Column="1" BorderColor="Black">
+    <Entry x:Name="PasswordBox" Placeholder="Enter Password" />
+</Frame>
+    <Button BorderColor="Black" Text="Submit" Grid.Column="1" Grid.Row="4"/>
+</Grid>
+
+</ContentPage.Content>
+</ContentPage>
