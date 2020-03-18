@@ -15,13 +15,14 @@ namespace United2Heal.Views
             ViewModel = new ChooseSchoolViewModel();
         }
 
-        private void OnVCULogoClicked(object sender, EventArgs e)
+        async private void OnVCULogoClicked(object sender, EventArgs e)
         {
-            
+            await Navigation.PushAsync(new Login("VCU"));
         }
 
-        private void OnGMULogoClicked(object sender, EventArgs e)
+        async private void OnGMULogoClicked(object sender, EventArgs e)
         {
+            await Navigation.PushAsync(new Login("GMU"));
 
         }
     }

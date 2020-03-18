@@ -12,7 +12,14 @@ namespace United2Heal.Views
         {
             InitializeComponent();
             ViewModel = new LoginViewModel();
-            
+            if (school.Equals("VCU"))
+            {
+                Pic.Source="VCULogo.jpg";
+            }
+            else if (school.Equals("GMU"))
+            {
+                Pic.Source = "GMULogo.jpg";
+            }
         }
     }
 }

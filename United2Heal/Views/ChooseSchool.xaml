@@ -53,7 +53,8 @@
             <ImageButton x:Name="VCUButton"
                          Source="VCULogo.jpg"
                          BackgroundColor="White"
-                         Aspect="Fill"/>
+                         Aspect="Fill"
+                         Clicked="OnVCULogoClicked"/>
         </Frame>
 
         <Frame HasShadow="False"
@@ -68,7 +69,8 @@
             <ImageButton x:Name="GMUButton"
                          Source="GMULogo.jpg"
                          BackgroundColor="White"
-                         Aspect="Fill"/>
+                         Aspect="Fill"
+                         Clicked="OnGMULogoClicked"/>
 
 
         </Frame>

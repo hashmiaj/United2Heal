@@ -11,7 +11,7 @@ namespace United2Heal
         {
             InitializeComponent();
 
-            MainPage = new ChooseSchool();
+            MainPage = new NavigationPage(new ChooseSchool());
         }
 
         protected override void OnStart()
