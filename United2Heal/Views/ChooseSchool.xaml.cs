@@ -23,7 +23,6 @@ namespace United2Heal.Views
         async private void OnGMULogoClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Login("GMU"));
-
         }
     }
 }

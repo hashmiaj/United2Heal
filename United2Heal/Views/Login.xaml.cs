@@ -20,6 +20,13 @@ namespace United2Heal.Views
             {
                 Pic.Source = "GMULogo.jpg";
             }
+
+        }
+
+        void Submit_Clicked(System.Object sender, System.EventArgs e)
+        {
+
         }
     }
+
 }
