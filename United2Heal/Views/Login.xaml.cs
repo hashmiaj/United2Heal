@@ -12,6 +12,8 @@ namespace United2Heal.Views
         {
             InitializeComponent();
             ViewModel = new LoginViewModel();
+
+            
             
             if (school.Equals("VCU"))
             {

@@ -26,7 +26,7 @@
     <Image x:Name="Pic" Source="" Aspect="Fill"/>
 </Frame>
         <Frame Grid.Column="1" Grid.Row="3" BorderColor="Black" Margin="15">
-            <Picker Title="Select Group" />
+            <Picker x:Name="GroupPicker" Title="Select Group" />
             </Frame>
 <Frame x:Name="TextFrame" HasShadow="False" Grid.Row="4" Grid.Column="1" BorderColor="Black" Margin="10">
     <Entry x:Name="PasswordBox" Placeholder="Enter Password" />
