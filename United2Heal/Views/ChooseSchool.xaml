@@ -45,7 +45,7 @@
                Grid.Row="3"
                Grid.Column="1"
                CornerRadius="20"
-               Margin="20"
+               Margin="15"
                Padding="0"
                IsClippedToBounds="True">
             <ImageButton x:Name="VCUButton"
@@ -59,7 +59,7 @@
                Grid.Row="4"
                Grid.Column="1"
                CornerRadius="20"
-               Margin="20"
+               Margin="15"
                Padding="0"
                IsClippedToBounds="True">
             <ImageButton x:Name="GMUButton"

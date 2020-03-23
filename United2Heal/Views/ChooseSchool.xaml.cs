@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using United2Heal.Utilities;
 using United2Heal.ViewModels;
 using Xamarin.Forms;
 
@@ -15,14 +16,16 @@ namespace United2Heal.Views
             ViewModel = new ChooseSchoolViewModel();
         }
 
-        async private void OnVCULogoClicked(object sender, EventArgs e)
+        private async void OnVCULogoClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Login("VCU"));
+            GlobalVariables.SchoolName = "VCU";
         }
 
-        async private void OnGMULogoClicked(object sender, EventArgs e)
+        private async void OnGMULogoClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Login("GMU"));
+            GlobalVariables.SchoolName = "GMU";
         }
     }
 }
