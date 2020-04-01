@@ -17,8 +17,11 @@ namespace United2Heal.ViewModels
     {
         private List<Box> boxes;
 
+        //Observable Collections are just lists that make it easier to pass it along from View Model to View.
+        //This specific variable is our list of 'groups' for our Group Picker in the Login View. 
         public ObservableCollection<String> availableGroups;
 
+        //This is just a boolean that returns false once its done loading the data. See line 102.
         private bool loadingGroups;
         public bool LoadingGroups
         {
@@ -28,11 +31,12 @@ namespace United2Heal.ViewModels
                 if (loadingGroups != value)
                 {
                     loadingGroups = value;
-                    OnPropertyChanged("loadingItems");
+                    OnPropertyChanged("loadingGroups");
                 }
             }
         }
 
+        //Handles all the changes to any variables we declare with the OnPropertyChanged method
         public event PropertyChangingEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string propertyName)
@@ -45,15 +49,25 @@ namespace United2Heal.ViewModels
             PropertyChanged(this, new PropertyChangingEventArgs(propertyName));
         }
 
+
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public LoginViewModel()
         {
             LoadingGroups = true;
             availableGroups = new ObservableCollection<string>();
         }
 
+        /// <summary>
+        /// Async method that loads data from our API get request. Converts data to List of Box objects (currently). 
+        /// </summary>
+        /// <returns></returns>
         public async Task LoadGroups()
         {
             LoadingGroups = true;
+
+            availableGroups.Clear();
 
             HttpClient client = new HttpClient();
 
@@ -79,18 +93,13 @@ namespace United2Heal.ViewModels
 
             }
 
+            //These Lines 84-91 are going to be gone once we get the correct data from our API. 
             HashSet<String> boxSet = new HashSet<string>();
-
             for (int i = 0; i < boxes.Count; i++)
             {
-                boxSet.Add(boxes[i].group);
-            }
-
-            
-            for (int i = 0; i < boxes.Count; i++)
-            {
-                if (boxSet.Contains(boxes[i].group) && boxes[i].is_open.Equals("1") && boxes[i].School.Equals(GlobalVariables.SchoolName))
+                if (!boxSet.Contains(boxes[i].group) && boxes[i].is_open.Equals("1") && boxes[i].School.Equals(GlobalVariables.SchoolName))
                 {
+                    boxSet.Add(boxes[i].group);
                     availableGroups.Add(boxes[i].group);
                 }
             }

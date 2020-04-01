@@ -14,6 +14,8 @@ namespace United2Heal.Views
         {
             InitializeComponent();
             ViewModel = new ChooseSchoolViewModel();
+
+            Title = "United2Heal";
         }
 
         private async void OnVCULogoClicked(object sender, EventArgs e)
