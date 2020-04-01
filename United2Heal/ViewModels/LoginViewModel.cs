@@ -7,20 +7,54 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Text;
 using System.Net.Http.Headers;
+using United2Heal.Utilities;
+using System.ComponentModel;
+using System.Linq;
 
 namespace United2Heal.ViewModels
 {
     public class LoginViewModel
     {
-        List<Box> boxes;
+        private List<Box> boxes;
+
+        public ObservableCollection<String> availableGroups;
+
+        private bool loadingGroups;
+        public bool LoadingGroups
+        {
+            get { return loadingGroups; }
+            set
+            {
+                if (loadingGroups != value)
+                {
+                    loadingGroups = value;
+                    OnPropertyChanged("loadingItems");
+                }
+            }
+        }
+
+        public event PropertyChangingEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged == null)
+            {
+                return;
+            }
+
+            PropertyChanged(this, new PropertyChangingEventArgs(propertyName));
+        }
 
         public LoginViewModel()
         {
-            LoadGroups();
+            LoadingGroups = true;
+            availableGroups = new ObservableCollection<string>();
         }
 
         public async Task LoadGroups()
         {
+            LoadingGroups = true;
+
             HttpClient client = new HttpClient();
 
             var authData = string.Format("{0}:{1}", "VCU", "united");
@@ -45,8 +79,26 @@ namespace United2Heal.ViewModels
 
             }
 
+            HashSet<String> boxSet = new HashSet<string>();
 
+            for (int i = 0; i < boxes.Count; i++)
+            {
+                boxSet.Add(boxes[i].group);
+            }
 
+            
+            for (int i = 0; i < boxes.Count; i++)
+            {
+                if (boxSet.Contains(boxes[i].group) && boxes[i].is_open.Equals("1") && boxes[i].School.Equals(GlobalVariables.SchoolName))
+                {
+                    availableGroups.Add(boxes[i].group);
+                }
+            }
+
+            availableGroups = new ObservableCollection<string>(availableGroups.OrderBy(i => i));
+
+            LoadingGroups = false;
+            
         }
     }
 }

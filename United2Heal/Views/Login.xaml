@@ -18,21 +18,24 @@
             <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
 
-<Frame x:Name="LoginFrame" HasShadow="False" BorderColor="Black" Grid.Row="1" Grid.Column="1" Margin="10" >
-    <Label x:Name="LoginTitle" Text="Login" TextColor="Black" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-</Frame>
+        <Frame x:Name="LoginFrame" HasShadow="False" BorderColor="Black" Grid.Row="1" Grid.Column="1" Margin="10" >
+            <Label x:Name="LoginTitle" Text="Login" TextColor="Black" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        </Frame>
 
-<Frame x:Name="PictureFrame" HasShadow="False" BorderColor="Black" Grid.Row="2" Grid.Column="1" CornerRadius="20" Margin="10" Padding="0" IsClippedToBounds="True">
-    <Image x:Name="Pic" Source="" Aspect="Fill"/>
-</Frame>
-        <Frame Grid.Column="1" Grid.Row="3" BorderColor="Black" Margin="15">
+        <Frame x:Name="PictureFrame" HasShadow="False" BorderColor="Black" Grid.Row="2" Grid.Column="1" CornerRadius="20" Margin="10" Padding="0" IsClippedToBounds="True">
+            <Image x:Name="Pic" Source="" Aspect="Fill"/>
+        </Frame>
+        <Frame x:Name="GroupFrame" Grid.Column="1" Grid.Row="3" BorderColor="Black" Margin="15">
             <Picker x:Name="GroupPicker" Title="Select Group" />
-            </Frame>
-<Frame x:Name="TextFrame" HasShadow="False" Grid.Row="4" Grid.Column="1" BorderColor="Black" Margin="10">
-    <Entry x:Name="PasswordBox" Placeholder="Enter Password" />
-</Frame>
-    <Button BorderColor="Black" Text="Submit" Grid.Column="1" Grid.Row="5" TextColor="CadetBlue" Clicked="Submit_Clicked"/>
-</Grid>
+        </Frame>
+        <Frame x:Name="TextFrame" HasShadow="False" Grid.Row="4" Grid.Column="1" BorderColor="Black" Margin="10">
+            <Entry x:Name="PasswordBox" Placeholder="Enter Password" />
+        </Frame>
+
+        <Button x:Name="SubmitButton" BorderColor="Black" Text="Submit" Grid.Column="1" Grid.Row="5" TextColor="CadetBlue" Clicked="Submit_Clicked"/>
+
+        <ActivityIndicator x:Name="LoadingIcon" IsRunning="False" Grid.ColumnSpan="3" Grid.RowSpan="7" WidthRequest="100" HeightRequest="100" IsVisible="False"/>
+    </Grid>
 
 </ContentPage.Content>
 </ContentPage>
