@@ -18,8 +18,20 @@ namespace United2Heal.ViewModels
         private List<Box> boxes;
 
         //Observable Collections are just lists that make it easier to pass it along from View Model to View.
-        //This specific variable is our list of 'groups' for our Group Picker in the Login View. 
-        public ObservableCollection<String> availableGroups;
+        //This specific variable is our list of 'groups' for our Group Picker in the Login View.
+        private List<string> availableGroups;
+        public List<string> AvailableGroups
+        {
+            get { return availableGroups; }
+            set
+            {
+                if(availableGroups != value)
+                {
+                    availableGroups = value;
+                    OnPropertyChanged("availableGroups");
+                }
+            }
+        }
 
         //This is just a boolean that returns false once its done loading the data. See line 102.
         private bool loadingGroups;
@@ -56,7 +68,7 @@ namespace United2Heal.ViewModels
         public LoginViewModel()
         {
             LoadingGroups = true;
-            availableGroups = new ObservableCollection<string>();
+            AvailableGroups = new List<string>();
         }
 
         /// <summary>
@@ -71,11 +83,20 @@ namespace United2Heal.ViewModels
 
             HttpClient client = new HttpClient();
 
-            var authData = string.Format("{0}:{1}", "VCU", "united");
+            var authData = GlobalVariables.SchoolName.Equals("VCU") ? string.Format("{0}:{1}", "VCU", "united") : string.Format("{0}:{1}", "GMU", "u2hgmu");
             var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
 
-            var uri = new Uri(String.Format("https://u2h.herokuapp.com/api/v1.0/VCU/boxes"));
+            Uri uri = new Uri(String.Format("https://u2h.herokuapp.com/api/v1.0/VCU/boxes"));
+
+            if (GlobalVariables.SchoolName.Equals("VCU"))
+            {
+                uri = new Uri(String.Format("https://u2h.herokuapp.com/api/v1.0/VCU/boxes"));
+            }
+            if (GlobalVariables.SchoolName.Equals("GMU"))
+            {
+                uri = new Uri(String.Format("https://u2h.herokuapp.com/api/v1.0/GMU/boxes"));
+            }
 
             var response = await client.GetAsync(uri);
 
@@ -100,11 +121,11 @@ namespace United2Heal.ViewModels
                 if (!boxSet.Contains(boxes[i].group) && boxes[i].is_open.Equals("1") && boxes[i].School.Equals(GlobalVariables.SchoolName))
                 {
                     boxSet.Add(boxes[i].group);
-                    availableGroups.Add(boxes[i].group);
+                    AvailableGroups.Add(boxes[i].group);
                 }
             }
 
-            availableGroups = new ObservableCollection<string>(availableGroups.OrderBy(i => i));
+            AvailableGroups = new List<string>(AvailableGroups.OrderBy(i => i));
 
             LoadingGroups = false;
             

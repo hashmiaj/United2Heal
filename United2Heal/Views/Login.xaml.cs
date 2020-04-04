@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using United2Heal.Utilities;
 using United2Heal.ViewModels;
 using Xamarin.Forms;
 
@@ -9,23 +10,21 @@ namespace United2Heal.Views
     public partial class Login : ContentPage
     {
         LoginViewModel ViewModel;
-        public Login(String school)
+        public Login()
         {
             InitializeComponent();
             ViewModel = new LoginViewModel();
             
-
             DisplayLoadingScreen();
 
-            if (school.Equals("VCU"))
+            if (GlobalVariables.SchoolName.Equals("VCU"))
             {
                 Pic.Source="VCULogo.jpg";
             }
-            else if (school.Equals("GMU"))
+            else if (GlobalVariables.SchoolName.Equals("GMU"))
             {
                 Pic.Source = "GMULogo.jpg";
             }
-
         }
 
         public async Task DisplayLoadingScreen()
@@ -45,7 +44,7 @@ namespace United2Heal.Views
                 await Task.Delay(100);
             }
 
-            GroupPicker.ItemsSource = ViewModel.availableGroups;
+            GroupPicker.ItemsSource = ViewModel.AvailableGroups;
 
             LoginFrame.Opacity = 1;
             PictureFrame.Opacity = 1;
@@ -57,10 +56,9 @@ namespace United2Heal.Views
             LoadingIcon.IsVisible = false;
         }
 
-        void Submit_Clicked(System.Object sender, System.EventArgs e)
+        public void Submit_Clicked(Object sender, EventArgs e)
         {
-
+            
         }
     }
-
 }

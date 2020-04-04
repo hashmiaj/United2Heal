@@ -20,14 +20,14 @@ namespace United2Heal.Views
 
         private async void OnVCULogoClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Login("VCU"));
             GlobalVariables.SchoolName = "VCU";
+            await Navigation.PushAsync(new Login());
         }
 
         private async void OnGMULogoClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Login("GMU"));
             GlobalVariables.SchoolName = "GMU";
+            await Navigation.PushAsync(new Login());
         }
     }
 }
