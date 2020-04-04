@@ -56,9 +56,40 @@ namespace United2Heal.Views
             LoadingIcon.IsVisible = false;
         }
 
-        public void Submit_Clicked(Object sender, EventArgs e)
+        public async void Submit_Clicked(Object sender, EventArgs e)
         {
-            
+            bool CorrectPass = false;
+            if(GlobalVariables.SchoolName.Equals("VCU"))
+            {
+                if(!string.IsNullOrEmpty(PasswordBox.Text) && PasswordBox.Text.Equals("united"))
+                {
+                    CorrectPass = true;
+                }
+            }
+            if(GlobalVariables.SchoolName.Equals("GMU"))
+            {
+                if(!string.IsNullOrEmpty(PasswordBox.Text) && PasswordBox.Text.Equals("u2hgmu"))
+                {
+                    CorrectPass = true;
+                }
+            }
+
+            if(GroupPicker.SelectedIndex == -1)
+            {
+                await DisplayAlert("Select a group!", "Please select a group to continue.", "Okay");
+                return;
+            }
+
+            if(CorrectPass)
+            {
+                await DisplayAlert("Correct password!", "This will then navigate to the app home page (pending).", "Okay");
+            }
+            else
+            {
+                await DisplayAlert("Incorrect password!", "Please try again!", "Okay");
+            }
+
+
         }
     }
 }
