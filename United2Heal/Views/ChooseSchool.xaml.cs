@@ -12,9 +12,10 @@ namespace United2Heal.Views
 
         public ChooseSchool()
         {
+            NavigationPage.SetHasBackButton(this, false);
+            this.BackgroundColor = Color.Blue;
             InitializeComponent();
             ViewModel = new ChooseSchoolViewModel();
-
             Title = "United2Heal";
         }
 

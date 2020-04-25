@@ -4,36 +4,36 @@
     <Grid x:Name="Grid" RowSpacing="0" ColumnSpacing="0" BackgroundColor="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="13*"/>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="15"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="5*"/>
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="90*"/>
             <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
 
-        <Frame x:Name="LoginFrame" HasShadow="False" BorderColor="Black" Grid.Row="1" Grid.Column="1" Margin="10" >
-            <Label x:Name="LoginTitle" Text="Login" TextColor="Black" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        <Frame x:Name="LoginFrame" HasShadow="False" BorderColor="Black" Grid.Row="1" Grid.Column="1" Margin="10" CornerRadius="20">
+            <Label x:Name="LoginTitle" Text="Login" TextColor="Black" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"/>
         </Frame>
 
-        <Frame x:Name="PictureFrame" HasShadow="False" BorderColor="Black" Grid.Row="2" Grid.Column="1" CornerRadius="20" Margin="10" Padding="0" IsClippedToBounds="True">
+        <Frame x:Name="PictureFrame" HasShadow="False" BorderColor="Black" Grid.Row="2" Grid.Column="1" CornerRadius="20" Margin="10" Padding="0" IsClippedToBounds="True" >
             <Image x:Name="Pic" Source="" Aspect="Fill"/>
         </Frame>
-        <Frame x:Name="GroupFrame" Grid.Column="1" Grid.Row="3" BorderColor="Black" Margin="15">
-            <Picker x:Name="GroupPicker" Title="Select Group" />
+        <Frame x:Name="GroupFrame" HasShadow="False" Grid.Column="1" Grid.Row="3" BorderColor="Black" Margin="10" CornerRadius="20" >
+            <Picker x:Name="GroupPicker" Title="Select Group" Grid.Column="3"/>
         </Frame>
-        <Frame x:Name="TextFrame" HasShadow="False" Grid.Row="4" Grid.Column="1" BorderColor="Black" Margin="10">
-            <Entry x:Name="PasswordBox" Placeholder="Enter Password" />
+        <Frame x:Name="TextFrame" HasShadow="False" Grid.Row="4" Grid.Column="1" BorderColor="Black" Margin="10" CornerRadius="20">
+            <Entry x:Name="PasswordBox" Placeholder="Enter Password" IsPassword="True" />
         </Frame>
-
-        <Button x:Name="SubmitButton" BorderColor="Black" Text="Submit" Grid.Column="1" Grid.Row="5" TextColor="CadetBlue" Clicked="Submit_Clicked"/>
-
+        <Frame Grid.Column="1" Grid.Row="5" BorderColor="Black" HasShadow="False" Margin="10">
+        <Button x:Name="SubmitButton" BorderColor="Black" Text="Submit"  TextColor="CadetBlue" Clicked="Submit_Clicked"/>
+            </Frame>
         <ActivityIndicator x:Name="LoadingIcon" IsRunning="False" Grid.ColumnSpan="3" Grid.RowSpan="7" WidthRequest="100" HeightRequest="100" IsVisible="False"/>
     </Grid>
 

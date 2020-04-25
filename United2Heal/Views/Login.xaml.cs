@@ -80,9 +80,10 @@ namespace United2Heal.Views
                 return;
             }
 
-            if(CorrectPass)
+            if(CorrectPass && (GroupPicker.SelectedIndex != -1))
             {
-                await DisplayAlert("Correct password!", "This will then navigate to the app home page (pending).", "Okay");
+                GlobalVariables.GroupName = ViewModel.AvailableGroups[GroupPicker.SelectedIndex];
+                await Navigation.PushAsync(new MainMenu());
             }
             else
             {

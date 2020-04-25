@@ -2,18 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="United2Heal.Views.MainMenu" >
     
     <ContentPage.Content >
+        
 <Grid>
     <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="10*" />
+        <ColumnDefinition Width="7*" />
         <ColumnDefinition Width="30*" />
         <ColumnDefinition Width="30*" />
         <ColumnDefinition Width="30*" />
-        <ColumnDefinition Width="10*" />
+        <ColumnDefinition Width="7*" />
     </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
-        <RowDefinition Height="7*"  />
-        <RowDefinition Height="15*" />
-        <RowDefinition Height="8*" />
+        <RowDefinition Height="4*"  />
+        <RowDefinition Height="20*" />
+        <RowDefinition Height="10*" />
         <RowDefinition Height="12*" />
         <RowDefinition Height="5*" />
         <RowDefinition Height="12*" />
@@ -24,21 +25,21 @@
         <RowDefinition Height="5*" />
     </Grid.RowDefinitions>
     <Frame Grid.Row="1" Grid.Column="1" Padding="0" Grid.ColumnSpan="3">
-        <Image x:Name="schoolPicture" Source="" Aspect="Fill"/>
+        <Image x:Name="SchoolPicture" Source="" Aspect="Fill"/>
     </Frame>
-    <Label  x:Name="groupLabel" Text="Group:" Grid.Column="1" Grid.Row="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="20" FontAttributes="Bold"
+    <Label  x:Name="GroupLabel" Text="Group:" Grid.Column="1" Grid.Row="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="25" FontAttributes="Bold"
             Grid.ColumnSpan="3"/>
     <Frame Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" >
-        <Button FontSize="20" Text="Search Item List" TextColor="Black"/>
+        <Button FontSize="25" Text="Search Item List" TextColor="Black" Image= "VCULogo" />
 </Frame>
     <Frame Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="3" >
-        <Button FontSize="20" Text="Add New Item" TextColor="Black"/>
+        <Button FontSize="25" Text="Add New Item" TextColor="Black"/>
         </Frame>
     <Frame Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3">
-        <Button FontSize="20" Text="Box Stats" TextColor="Black"/>
+        <Button FontSize="25" Text="Box Stats" TextColor="Black"/>
         </Frame>
-    <Frame Grid.Row=" 9" Grid.Column="1" HasShadow="False" >
-        <Button Text="LogOut" FontSize="Micro"/>
+    <Frame Grid.Row=" 9" Grid.Column="1" HasShadow="False" BorderColor="Black" >
+        <Button x:Name="LogoutButton"  TextColor="Black" Text="Logout" FontSize="20" Clicked="OnLogoutClicked" />
         </Frame>
 </Grid>
     </ContentPage.Content>
