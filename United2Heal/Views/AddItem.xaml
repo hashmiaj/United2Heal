@@ -24,11 +24,11 @@
                 <Label Text="Add an Item" FontAttributes="Bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
             </Frame>
             <Label Grid.Column="1" Grid.Row="2" Text="Enter the Name of the Item: " VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="30"/>
-            <Frame Grid.Row="3" Grid.Column="1">
-                <Entry x:Name="ItemEntry" />
+            <Frame Grid.Row="3" Grid.Column="1" HasShadow="False">
+                <Entry x:Name="ItemEntry" Placeholder="Item Name"/>
             </Frame>
-            <Frame Grid.Row="5" Grid.Column="1">
-                <Button Text="Submit" FontSize="30" TextColor="Black" Clicked="Submit_Clicked"/>
+            <Frame Grid.Row="5" Grid.Column="1" HasShadow="False" BorderColor="Black" CornerRadius="25">
+                <Button Text="Submit" FontSize="30" TextColor="Blue" Clicked="Submit_Clicked"/>
             </Frame>
         </Grid>
     </ContentPage.Content>
