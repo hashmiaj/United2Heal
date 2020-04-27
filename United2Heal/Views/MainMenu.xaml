@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="United2Heal.Views.MainMenu" >
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="United2Heal.Views.MainMenu" Visual="Material" >
     
-    <ContentPage.Content >
+    <ContentPage.Content>
         
 <Grid>
     <Grid.ColumnDefinitions>
@@ -33,7 +33,7 @@
         <Button FontSize="25" Text="Search Item List" TextColor="Black" Image= "VCULogo" />
 </Frame>
     <Frame Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="3" >
-        <Button FontSize="25" Text="Add New Item" TextColor="Black"/>
+        <Button FontSize="25" Text="Add New Item" TextColor="Black" Clicked="AddItemClicked"/>
         </Frame>
     <Frame Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3">
         <Button FontSize="25" Text="Box Stats" TextColor="Black"/>
