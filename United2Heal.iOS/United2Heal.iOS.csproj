@@ -63,8 +63,9 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
-    <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\Info.plist" />
+    <Compile Include="Implementations\FontAwesome.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -113,5 +114,10 @@
     <BundleResource Include="Resources\GMULogo.jpg" />
     <BundleResource Include="Resources\VCULogo.jpg" />
     <BundleResource Include="Resources\U2H Pic.jpeg" />
+    <BundleResource Include="Resources\FontAwesome5Regular.ttf" />
+    <BundleResource Include="Resources\FontAwesome5Solid.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Implementations\" />
   </ItemGroup>
 </Project>

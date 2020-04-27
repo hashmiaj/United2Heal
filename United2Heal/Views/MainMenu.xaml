@@ -29,15 +29,64 @@
     </Frame>
     <Label  x:Name="GroupLabel" Text="Group:" Grid.Column="1" Grid.Row="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="25" FontAttributes="Bold"
             Grid.ColumnSpan="3"/>
-    <Frame Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" >
-        <Button FontSize="25" Text="Search Item List" TextColor="Black" Image= "VCULogo" />
-</Frame>
-    <Frame Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="3" >
-        <Button FontSize="25" Text="Add New Item" TextColor="Black"/>
-        </Frame>
-    <Frame Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3">
-        <Button FontSize="25" Text="Box Stats" TextColor="Black"/>
-        </Frame>
+    <Frame Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" CornerRadius="25" HasShadow="False" BorderColor="Black">
+        <StackLayout Orientation="Horizontal">
+            <Button FontSize="25" Text="Search Item List" TextColor="Blue" WidthRequest="250"/>
+            <Label x:Name="SearchIcon"
+                    Text="&#xf002;"
+                    TextColor="Blue"
+                    FontSize="30"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center">
+                    
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Android="FontAwesome5Solid.ttf#Font Awesome 5 Solid"
+                                iOS="Font Awesome 5 Solid"/>
+                </Label.FontFamily>
+                    
+            </Label>
+        </StackLayout>
+
+    </Frame>
+    <Frame Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="3" CornerRadius="25" HasShadow="False" BorderColor="Black">
+        <StackLayout Orientation="Horizontal">
+            <Button FontSize="25" Text="Add New Item" TextColor="Blue" WidthRequest="250" />
+            <Label x:Name="AddIcon"
+                    Text="&#xf055;"
+                    TextColor="Blue"
+                    FontSize="30"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center">
+                    
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Android="FontAwesome5Solid.ttf#Font Awesome 5 Solid"
+                                iOS="Font Awesome 5 Solid"/>
+                </Label.FontFamily>
+                    
+            </Label>
+        </StackLayout>
+    </Frame>
+    <Frame Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" CornerRadius="25" HasShadow="False" BorderColor="Black">
+        <StackLayout Orientation="Horizontal">
+            <Button FontSize="25" Text="Box Stats" TextColor="Blue" WidthRequest="250"/>
+            <Label x:Name="BoxIcon"
+                    Text="&#xf49e;"
+                    TextColor="Blue"
+                    FontSize="30"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center">
+                    
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Android="FontAwesome5Solid.ttf#Font Awesome 5 Solid"
+                                iOS="Font Awesome 5 Solid"/>
+                </Label.FontFamily>
+                    
+            </Label>
+        </StackLayout>
+    </Frame>
     <Frame Grid.Row=" 9" Grid.Column="1" HasShadow="False" BorderColor="Black" >
         <Button x:Name="LogoutButton"  TextColor="Black" Text="Logout" FontSize="20" Clicked="OnLogoutClicked" />
         </Frame>

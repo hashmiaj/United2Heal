@@ -14,6 +14,8 @@ namespace United2Heal.Views
             InitializeComponent();
             ViewModel = new MainMenuViewModel();
             NavigationPage.SetHasBackButton(this, false);
+            Title = "United2Heal";
+
             if (GlobalVariables.SchoolName.Equals("VCU"))
             {
                 SchoolPicture.Source = "VCULogo.jpg";

@@ -16,5 +16,6 @@
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Utilities\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 </Project>
