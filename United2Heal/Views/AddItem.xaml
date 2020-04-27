@@ -20,14 +20,14 @@
                 <RowDefinition Height="28.75*"/>
                 <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
-            <Frame Grid.Column="1" Grid.Row="1">
+            <Frame Grid.Column="1" Grid.Row="1" HasShadow="False" BorderColor="Black">
                 <Label Text="Add an Item" FontAttributes="Bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
             </Frame>
             <Label Grid.Column="1" Grid.Row="2" Text="Enter the Name of the Item: " VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="30"/>
-            <Frame Grid.Row="3" Grid.Column="1">
+            <Frame Grid.Row="3" Grid.Column="1" HasShadow="False" BorderColor="Black">
                 <Entry x:Name="ItemEntry" />
             </Frame>
-            <Frame Grid.Row="5" Grid.Column="1">
+            <Frame Grid.Row="5" Grid.Column="1" HasShadow="False" BorderColor="Black">
                 <Button Text="Submit" FontSize="30" TextColor="Black" Clicked="Submit_Clicked"/>
             </Frame>
         </Grid>

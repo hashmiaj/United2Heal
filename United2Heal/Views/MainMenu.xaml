@@ -24,18 +24,18 @@
         <RowDefinition Height="10*" />
         <RowDefinition Height="5*" />
     </Grid.RowDefinitions>
-    <Frame Grid.Row="1" Grid.Column="1" Padding="0" Grid.ColumnSpan="3">
+    <Frame Grid.Row="1" Grid.Column="1" Padding="0" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black">
         <Image x:Name="SchoolPicture" Source="" Aspect="Fill"/>
     </Frame>
     <Label  x:Name="GroupLabel" Text="Group:" Grid.Column="1" Grid.Row="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="25" FontAttributes="Bold"
             Grid.ColumnSpan="3"/>
-    <Frame Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" >
+    <Frame Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black">
         <Button FontSize="25" Text="Search Item List" TextColor="Black" Image= "VCULogo" />
 </Frame>
-    <Frame Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="3" >
+    <Frame Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black">
         <Button FontSize="25" Text="Add New Item" TextColor="Black" Clicked="AddItemClicked"/>
         </Frame>
-    <Frame Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3">
+    <Frame Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black" >
         <Button FontSize="25" Text="Box Stats" TextColor="Black"/>
         </Frame>
     <Frame Grid.Row=" 9" Grid.Column="1" HasShadow="False" BorderColor="Black" >
