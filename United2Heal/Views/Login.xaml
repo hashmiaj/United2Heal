@@ -32,7 +32,7 @@
             <Entry x:Name="PasswordBox" Placeholder="Enter Password" IsPassword="True" />
         </Frame>
         <Frame Grid.Column="1" Grid.Row="5" BorderColor="Black" HasShadow="False" Margin="10">
-        <Button x:Name="SubmitButton" BorderColor="Black" Text="Submit"  TextColor="Black" Clicked="Submit_Clicked" FontSize="30" />
+        <Button x:Name="SubmitButton" BorderColor="Black" Text="Submit"  TextColor="Blue" Clicked="Submit_Clicked" FontSize="30" />
             </Frame>
         <ActivityIndicator x:Name="LoadingIcon" IsRunning="False" Grid.ColumnSpan="3" Grid.RowSpan="7" WidthRequest="100" HeightRequest="100" IsVisible="False"/>
     </Grid>
