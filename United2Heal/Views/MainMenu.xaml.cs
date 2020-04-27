@@ -33,5 +33,9 @@ namespace United2Heal.Views
             GlobalVariables.GroupName = "";
             await Navigation.PushAsync(new ChooseSchool());
         }
+        public async void AddItemClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddItem());
+        }
     }
 }
