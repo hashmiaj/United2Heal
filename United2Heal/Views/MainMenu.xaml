@@ -31,21 +31,25 @@
             Grid.ColumnSpan="3"/>
     <Frame Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" CornerRadius="25" HasShadow="False" BorderColor="Black">
         <StackLayout Orientation="Horizontal">
-            <Button FontSize="25" Text="Search Item List" TextColor="Blue" WidthRequest="250"/>
-            <Label x:Name="SearchIcon"
+            <Button FontSize="25" Text="Search Item List" TextColor="Blue" WidthRequest="250" Clicked="SearchItemListClicked"/>
+            <Button x:Name="SearchIcon"
                     Text="&#xf002;"
                     TextColor="Blue"
                     FontSize="30"
-                    HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Center">
+                    Clicked="SearchItemListClicked">
                     
-                <Label.FontFamily>
+                <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String"
                                 Android="FontAwesome5Solid.ttf#Font Awesome 5 Solid"
                                 iOS="Font Awesome 5 Solid"/>
-                </Label.FontFamily>
+                </Button.FontFamily>
                     
-            </Label>
+            </Button>
+
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                      Tapped="SearchItemListClicked"/>
+            </StackLayout.GestureRecognizers>
         </StackLayout>
 
     </Frame>

@@ -8,7 +8,5 @@ namespace United2Heal.Models
     class BoxResults
     {
         public ObservableCollection<Box> Boxes { get; set; }
-
-
     }
 }

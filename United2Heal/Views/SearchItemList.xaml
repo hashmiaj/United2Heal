@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="United2Heal.Views.SearchItemList">
+    <Grid x:Name="Grid" RowSpacing="0" ColumnSpacing="0" BackgroundColor="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout x:Name="stackLayout" Grid.Row="0" Grid.Column="0">
+            <SearchBar x:Name="ItemSearchBar" TextChanged="SearchBarTextChanged"/>
+            <ListView x:Name="ItemListView"
+                      HasUnevenRows="False"
+                      ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding .}"
+                                   TextColor="Black" 
+                                   FontSize="25"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+
+        <ActivityIndicator x:Name="LoadingIcon" IsRunning="False" Grid.ColumnSpan="1" Grid.RowSpan="1" WidthRequest="100" HeightRequest="100" IsVisible="False"/>
+    </Grid>
+</ContentPage>

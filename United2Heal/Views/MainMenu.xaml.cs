@@ -37,5 +37,10 @@ namespace United2Heal.Views
         {
             await Navigation.PushAsync(new AddItem());
         }
+
+        public async void SearchItemListClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SearchItemList());
+        }
     }
 }
