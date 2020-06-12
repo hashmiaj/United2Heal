@@ -26,10 +26,14 @@ namespace United2Heal.Views
                 {
                     //Post request code...
 
-                    await DisplayAlert("Submitted!", "Item: " + ItemEntry.Text + " has been added", "Okay");
-                    await Navigation.PopModalAsync();
+                    await DisplayAlert("Submitted!", Environment.NewLine + ItemEntry.Text +
+                        Environment.NewLine +
+                        Environment.NewLine +
+                        "Has been added to the list!", "Okay");
 
                     //Code to navigate to the item page
+
+                    await Navigation.PopAsync();
                 }
             }
         }
