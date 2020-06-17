@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using United2Heal.ViewModels;
 using Xamarin.Forms;
 
 namespace United2Heal.Views
 {
     public partial class AddItem : ContentPage
     {
+        AddItemViewModel ViewModel;
         public AddItem()
         {
             InitializeComponent();
+            ViewModel = new AddItemViewModel();
         }
 
         public async void Submit_Clicked(object sender, EventArgs e)
@@ -24,7 +26,7 @@ namespace United2Heal.Views
 
                 if(answer)
                 {
-                    //Post request code...
+                    ViewModel.addItem(ItemEntry.Text);
 
                     await DisplayAlert("Submitted!", Environment.NewLine + ItemEntry.Text +
                         Environment.NewLine +
