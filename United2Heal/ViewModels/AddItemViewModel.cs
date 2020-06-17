@@ -42,9 +42,16 @@ namespace United2Heal.ViewModels
 
                 ItemResults itemResults = JsonConvert.DeserializeObject<ItemResults>(content);
                 var sortedList = itemResults.Items.OrderBy(x => x.id);
-                //String maxId = sortedList[sortedList.Count - 1];
-                code = itemResults.Items[itemResults.Items.Count - 1].id;
+                int maxInt = Int32.MinValue;
 
+                foreach(var obj in sortedList)
+                {
+                    int num = Int32.Parse(obj.id);
+                    if (num > maxInt)
+                        maxInt = num;
+                }
+
+                code = maxInt.ToString();
             }
 
             int itemCode = Int32.Parse(code) + 1;
@@ -52,11 +59,7 @@ namespace United2Heal.ViewModels
             item.id = itemCode.ToString();
 
             var postItem = JsonConvert.SerializeObject(item);
-            var postResponse = await client.PostAsync(url, new StringContent(postItem));
-
-
-
-
+            var postResponse = await client.PostAsync(uri, new StringContent(postItem));
         }
     }
 }
