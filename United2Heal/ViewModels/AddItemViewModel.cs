@@ -59,7 +59,10 @@ namespace United2Heal.ViewModels
             item.id = itemCode.ToString();
 
             var postItem = JsonConvert.SerializeObject(item);
-            var postResponse = await client.PostAsync(uri, new StringContent(postItem));
+
+            StringContent postContent = new StringContent(postItem, Encoding.UTF8, "application/json");
+            
+            var postResponse = await client.PostAsync(uri, postContent);
         }
     }
 }
