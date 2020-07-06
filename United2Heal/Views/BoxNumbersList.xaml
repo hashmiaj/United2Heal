@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="United2Heal.Views.BoxStatsList">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="United2Heal.Views.BoxNumbersList">
     <Grid x:Name="Grid" RowSpacing="0" ColumnSpacing="0" BackgroundColor="White">
 
         <Grid.RowDefinitions>
@@ -39,5 +39,4 @@
 
         <ActivityIndicator x:Name="LoadingIcon" IsRunning="False" Grid.ColumnSpan="1" Grid.RowSpan="1" WidthRequest="100" HeightRequest="100" IsVisible="False"/>
     </Grid>
-
 </ContentPage>

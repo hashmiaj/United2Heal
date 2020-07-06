@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="United2Heal.Views.BoxStatsList">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="United2Heal.Views.BoxItemList">
     <Grid x:Name="Grid" RowSpacing="0" ColumnSpacing="0" BackgroundColor="White">
 
         <Grid.RowDefinitions>
@@ -11,14 +11,6 @@
         </Grid.ColumnDefinitions>
 
         <StackLayout x:Name="stackLayout" Grid.Row="0" Grid.Column="0">
-            <!--<SearchBar x:Name="GroupSearchBar" TextChanged="SearchBarTextChanged"/>-->
-            <!--<Label Text="Select Group"
-                   FontSize="45"
-                   FontAttributes="Bold"
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center">
-
-            </Label>-->
             <ListView x:Name="GroupListView"
                       HasUnevenRows="False"
                       ItemSelected="OnItemSelected">
@@ -28,8 +20,9 @@
                             <Label Text="{Binding .}"
                                    TextColor="Black" 
                                    FontSize="25"
-                                   HorizontalTextAlignment="Center"
+                                   HorizontalTextAlignment="Start"
                                    VerticalTextAlignment="Center"/>
+
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -39,5 +32,4 @@
 
         <ActivityIndicator x:Name="LoadingIcon" IsRunning="False" Grid.ColumnSpan="1" Grid.RowSpan="1" WidthRequest="100" HeightRequest="100" IsVisible="False"/>
     </Grid>
-
 </ContentPage>

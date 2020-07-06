@@ -1,24 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using United2Heal.ViewModels;
 using Xamarin.Forms;
 
 namespace United2Heal.Views
 {
-    public partial class BoxStatsList : ContentPage
+    public partial class BoxNumbersList : ContentPage
     {
-        BoxStatsListViewModel ViewModel;
+        BoxNumbersListViewModel ViewModel;
 
-        public BoxStatsList()
+        private string GroupName = "";
+
+        public BoxNumbersList(string GroupName)
         {
             InitializeComponent();
-            ViewModel = new BoxStatsListViewModel();
-            Title = "Select Group";
 
+            ViewModel = new BoxNumbersListViewModel(GroupName);
+
+            this.GroupName = GroupName;
+
+            Title = "Select Box";
             DisplayLoadingScreen();
         }
+
 
         public async Task DisplayLoadingScreen()
         {
@@ -27,13 +32,13 @@ namespace United2Heal.Views
 
             stackLayout.Opacity = 0.1;
 
-            await ViewModel.GetGroupsList();
-            while (ViewModel.LoadingGroups)
+            await ViewModel.GetBoxList();
+            while (ViewModel.LoadingBoxes)
             {
                 await Task.Delay(100);
             }
 
-            GroupListView.ItemsSource = ViewModel.GroupsList;
+            GroupListView.ItemsSource = ViewModel.BoxList;
 
             stackLayout.Opacity = 1;
 
@@ -44,12 +49,9 @@ namespace United2Heal.Views
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var listView = (ListView)sender;
-            string selectedGroup = e.SelectedItem.ToString();
+            string selectedBox = e.SelectedItem.ToString();
 
-            await Navigation.PushAsync(new BoxNumbersList(selectedGroup));
+            await Navigation.PushAsync(new BoxItemList(GroupName, selectedBox));
         }
     }
-
-
 }
-

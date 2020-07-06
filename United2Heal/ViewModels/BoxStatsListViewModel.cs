@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using United2Heal.Models;
 using United2Heal.Utilities;
@@ -49,6 +50,34 @@ namespace United2Heal.ViewModels
             LoadingGroups = false;
             GroupsList = new List<string>();
 
+        }
+
+        public async Task GetGroupsList()
+        {
+            LoadingGroups = true;
+            GroupsList.Clear();
+
+            string connectionstring = "Server=united2heal.cxsnwexuvrto.us-east-1.rds.amazonaws.com;Port=3306;database=u2hdb;User Id=united2heal;Password=ilovevcu123;charset=utf8";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionstring))
+            {
+                connection.Open();
+                String queryGroup = "select distinct GroupName from u2hdb.ItemBox where School = '" + GlobalVariables.SchoolName + "' Order by GroupName";
+                using (MySqlCommand command = new MySqlCommand(queryGroup, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            GroupsList.Add(reader["GroupName"].ToString()); ;
+                        }
+                        reader.Close();
+                    }
+                }
+                connection.Close();
+            }
+
+            LoadingGroups = false;
         }
 
         //public async Task GetItemList()
