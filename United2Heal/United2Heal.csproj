@@ -18,4 +18,9 @@
     <Folder Include="Utilities\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\ItemPage.xaml.cs">
+      <DependentUpon>ItemPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>
