@@ -11,58 +11,70 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="5*" />
-                <RowDefinition Height="10*" />
+                <RowDefinition Height="15*" />
                 <RowDefinition Height="5*" />
-                <RowDefinition Height="10*" />
+                <RowDefinition Height="15*" />
                 <RowDefinition Height="5*" />
-                <RowDefinition Height="10*" />
+                <RowDefinition Height="15*" />
                 <RowDefinition Height="5*" />
-                <RowDefinition Height="10*" />
+                <RowDefinition Height="15*" />
                 <RowDefinition Height="5*" />
-                <RowDefinition Height="10*" />
+                <RowDefinition Height="15*" />
                 <RowDefinition Height="5*" />
-                <RowDefinition Height="10*" />
+                <RowDefinition Height="15*" />
                 <RowDefinition Height="5*" />
 
 
             </Grid.RowDefinitions>
-   <Frame Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+   <Frame x:Name="NameFrame" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black" IsClippedToBounds="True">
        <StackLayout>
-       <Label Text="Item Name:"  HorizontalTextAlignment="Start"/>
-           <Label Text="BLANK" HorizontalTextAlignment="End"/>
+       <Label Text="Item Name" FontSize="15" HorizontalTextAlignment="Center"/>
+           <Label x:Name="ItemName" Text="BLANK" HorizontalTextAlignment="Start" HorizontalOptions="Start" FontSize="15"/>
            </StackLayout>
    </Frame>
-            <Frame Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3">
+            <Frame x:Name="CodeFrame" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black">
        <StackLayout>
-       <Label Text="Item Code:" HorizontalTextAlignment="Center"/>
-           <Label Text="BLANK"/>
-           </StackLayout>
-
-   </Frame>
-            <Frame Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3">
-       <StackLayout>
-       <Label Text="Item Quantity:" HorizontalTextAlignment="Center"/>
-           <Label Text="BLANK"/>
+       <Label Text="Item Code" FontSize="15" HorizontalTextAlignment="Center"/>
+           <Label x:Name="ItemId" Text="BLANK" HorizontalOptions="Start" FontSize="15"/>
            </StackLayout>
 
    </Frame>
-            <Frame Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3">
-       <StackLayout>
-       <Label Text="BLANK:" HorizontalTextAlignment="Center"/>
-           <Label Text="BLANK"/>
+            <Frame x:Name="QuantFrame" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black">
+       <StackLayout Orientation="Horizontal" Spacing="50">
+       <Label Text="Item Quantity" FontSize="15" VerticalOptions="Center" HorizontalTextAlignment="Start" WidthRequest="150"/>
+           <Entry x:Name="QuantEntry" VerticalOptions="Center" Keyboard="Numeric" Placeholder="100"></Entry>
            </StackLayout>
 
    </Frame>
-            <Frame Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3">
-       <StackLayout>
-       <Label Text="BLANK:" HorizontalTextAlignment="Center"/>
-           <Label Text="BLANK"/>
+            <Frame x:Name="ExpFrame" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black">
+       <StackLayout Orientation="Horizontal" Spacing="50">
+       <Label Text="Expiration" FontSize="15" VerticalOptions="Center" HorizontalTextAlignment="Start" WidthRequest="150"/>
+           <Label VerticalOptions="Center" x:Name="CheckBox" Text="&#xf0c8;" FontSize="30" TextColor="LightGray">
+               <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Android="FontAwesome5Regular.ttf#Font Awesome 5 Regular"
+                                iOS="Font Awesome 5 Regular"/>
+                </Label.FontFamily>
+               <Label.GestureRecognizers>
+                   <TapGestureRecognizer NumberOfTapsRequired="1"
+                                         Tapped="CheckBoxClicked"/>
+               </Label.GestureRecognizers>
+           </Label>
            </StackLayout>
 
    </Frame>
-            <Frame Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="3">
-                <Button Text="Submit"/>
+            <Frame x:Name="BoxFrame" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black">
+       <StackLayout Orientation="Horizontal" Spacing="50">
+       <Label Text="Item Box" FontSize="15" VerticalOptions="Center" HorizontalTextAlignment="Start" WidthRequest="150"/>
+           <Picker VerticalOptions="Center" x:Name="ItemBoxPicker" Title="Select Box"/>
+           </StackLayout>
+
+   </Frame>
+            <Frame x:Name="SubmitFrame" Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black">
+                <Button Text="Submit" FontSize="40" Clicked="SubmitClicked"/>
             </Frame>
+
+            <ActivityIndicator x:Name="LoadingIcon" IsRunning="False" Grid.ColumnSpan="5" Grid.RowSpan="13" WidthRequest="100" HeightRequest="100" IsVisible="False"/>
 </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -66,9 +66,7 @@ namespace United2Heal.Views
                 }
             }
 
-            //Navigate to the item page below not the main menu :) 
-
-            await Navigation.PushAsync(new MainMenu());
+            Navigation.PushAsync(new ItemPage(item));
         }
     }
 }
