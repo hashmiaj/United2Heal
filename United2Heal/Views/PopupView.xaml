@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="United2Heal.Views.PopupView"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup">
+  <pages:PopupPage.Animation> 
+    <animations:ScaleAnimation
+      PositionIn="Top"
+      PositionOut="Center"
+      ScaleIn="1"
+      ScaleOut="0.7"
+      DurationIn="500"
+      EasingIn="CubicIn"/>
+  </pages:PopupPage.Animation>
+
+    <Frame VerticalOptions="Center" 
+        HorizontalOptions="FillAndExpand" WidthRequest="100" HeightRequest="100" HasShadow="True" BorderColor="Black" IsClippedToBounds="True">
+    <Grid VerticalOptions="Center" 
+        HorizontalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="0.5"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="0.5"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Select Date" FontSize="30" VerticalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2"/>
+
+        <BoxView BackgroundColor="Black" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+        <DatePicker x:Name="datePicker"  VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="2" Grid.ColumnSpan="2"/>
+
+        <BoxView BackgroundColor="Black" Grid.Row="3" Grid.ColumnSpan="2"/>
+
+        <Button Text="Cancel" VerticalOptions="Center" HorizontalOptions="Center" FontSize="25" Grid.Row="4" Grid.Column="0" Clicked="CancelButtonClicked"/>
+        <Button Text="Submit" VerticalOptions="Center" HorizontalOptions="Center" FontSize="25" Grid.Row="4" Grid.Column="1" Clicked="SubmitButtonClicked"/>
+
+    </Grid>
+    </Frame>
+
+</pages:PopupPage>

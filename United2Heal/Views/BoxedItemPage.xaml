@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="United2Heal.Views.BoxedItemPage">
+
+    <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="5*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="15*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="15*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="15*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="15*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="15*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="15*" />
+                <RowDefinition Height="5*" />
+
+
+            </Grid.RowDefinitions>
+   <Frame x:Name="NameFrame" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black" IsClippedToBounds="True">
+       <StackLayout>
+       <Label Text="Item Name" FontSize="15" HorizontalTextAlignment="Center" TextDecorations="Underline"/>
+           <Label x:Name="ItemName" Text="BLANK" HorizontalTextAlignment="Center" FontSize="15"/>
+           </StackLayout>
+   </Frame>
+            <Frame x:Name="CodeFrame" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black">
+       <StackLayout>
+       <Label Text="Item Code" FontSize="15" HorizontalTextAlignment="Center" TextDecorations="Underline"/>
+           <Label x:Name="ItemId" Text="BLANK" HorizontalOptions="Center" FontSize="15"/>
+           </StackLayout>
+
+   </Frame>
+            <Frame x:Name="QuantFrame" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black">
+       <StackLayout>
+       <Label Text="Item Quantity" FontSize="15" HorizontalTextAlignment="Center" TextDecorations="Underline"/>
+           <Label x:Name="ItemQuant" Text="BLANK" HorizontalTextAlignment="Center"  FontSize="15"/>
+           </StackLayout>
+
+   </Frame>
+            <Frame x:Name="ExpFrame" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black">
+       <StackLayout>
+       <Label Text="Expiration" FontSize="15" HorizontalTextAlignment="Center" TextDecorations="Underline"/>
+           <Label x:Name="Expiration" Text="BLANK" HorizontalTextAlignment="Center" FontSize="15"/>
+           </StackLayout>
+
+   </Frame>
+            <Frame x:Name="BoxFrame" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black">
+       <StackLayout>
+       <Label Text="Item Box" FontSize="15" HorizontalTextAlignment="Center" TextDecorations="Underline"/>
+           <Label x:Name="ItemBox" Text="BLANK" HorizontalTextAlignment="Center" FontSize="15"/>
+           </StackLayout>
+
+   </Frame>
+</Grid>
+    
+</ContentPage>

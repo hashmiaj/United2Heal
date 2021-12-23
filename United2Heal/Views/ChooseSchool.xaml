@@ -2,8 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="United2Heal.Views.ChooseSchool">
-    <Grid x:Name="MainGrid" RowSpacing="0" ColumnSpacing="0" BackgroundColor="White">
-
+   
+    <Grid x:Name="MainGrid"
+          RowSpacing="0"
+          ColumnSpacing="0"
+          BackgroundColor="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="15*"/>
@@ -11,18 +14,17 @@
             <RowDefinition Height="20*"/>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="20*"/>
-
         </Grid.RowDefinitions>
-
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="80*"/>
             <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
-
-
-        <Frame x:Name="WelcomeFrame" HasShadow="False" BorderColor="Black" Grid.Row="1" Grid.Column="1">
+        <Frame x:Name="WelcomeFrame"
+               HasShadow="False"
+               BorderColor="Black"
+               Grid.Row="1"
+               Grid.Column="1">
             <Label x:Name="WelcomeTitle"
                    Text="Welcome!"
                    TextColor="Black"
@@ -31,7 +33,6 @@
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"/>
         </Frame>
-
         <Label x:Name="ChooseSchoolLabel"
                Text="Select A School"
                TextColor="Black"
@@ -40,38 +41,33 @@
                VerticalTextAlignment="Center"
                Grid.Row="2"
                Grid.Column="1"/>
-
         <Frame HasShadow="False"
                BorderColor="Black"
                Grid.Row="3"
                Grid.Column="1"
                CornerRadius="20"
-               Margin="20"
+               Margin="15"
                Padding="0"
                IsClippedToBounds="True">
-
             <ImageButton x:Name="VCUButton"
                          Source="VCULogo.jpg"
                          BackgroundColor="White"
-                         Aspect="Fill"/>
+                         Aspect="Fill"
+                         Clicked="OnVCULogoClicked"/>
         </Frame>
-
         <Frame HasShadow="False"
                BorderColor="Green"
                Grid.Row="4"
                Grid.Column="1"
                CornerRadius="20"
-               Margin="20"
+               Margin="15"
                Padding="0"
                IsClippedToBounds="True">
-
             <ImageButton x:Name="GMUButton"
                          Source="GMULogo.jpg"
                          BackgroundColor="White"
-                         Aspect="Fill"/>
-
-
-        </Frame>
-        
+                         Aspect="Fill"
+                         Clicked="OnGMULogoClicked"/>
+        </Frame>    
     </Grid>
 </ContentPage>

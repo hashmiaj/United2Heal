@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="United2Heal.Views.MainMenu" Visual="Material" >
+    
+    <ContentPage.Content>
+        
+<Grid>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="7*" />
+        <ColumnDefinition Width="30*" />
+        <ColumnDefinition Width="30*" />
+        <ColumnDefinition Width="30*" />
+        <ColumnDefinition Width="7*" />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="4*"  />
+        <RowDefinition Height="20*" />
+        <RowDefinition Height="10*" />
+        <RowDefinition Height="12*" />
+        <RowDefinition Height="5*" />
+        <RowDefinition Height="12*" />
+        <RowDefinition Height="5*" />
+        <RowDefinition Height="12*" />
+        <RowDefinition Height="10*" />
+        <RowDefinition Height="10*" />
+        <RowDefinition Height="5*" />
+    </Grid.RowDefinitions>
+    <Frame Grid.Row="1" Grid.Column="1" Padding="0" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black">
+        <Image x:Name="SchoolPicture" Source="" Aspect="Fill"/>
+    </Frame>
+    <Label  x:Name="GroupLabel" Text="Group:" Grid.Column="1" Grid.Row="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="25" FontAttributes="Bold"
+            Grid.ColumnSpan="3"/>
+    <Frame Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" CornerRadius="25" HasShadow="False" BorderColor="Black">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button FontSize="25" Text="Search Item List" TextColor="Blue" WidthRequest="250" Clicked="SearchItemListClicked"/>
+            <Button x:Name="SearchIcon"
+                    Text="&#xf002;"
+                    TextColor="Blue"
+                    FontSize="30"
+                    Clicked="SearchItemListClicked">
+                    
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Android="FontAwesome5Solid.ttf#Font Awesome 5 Solid"
+                                iOS="Font Awesome 5 Solid"/>
+                </Button.FontFamily>
+                    
+            </Button>
+
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                      Tapped="SearchItemListClicked"/>
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+
+    </Frame>
+    <Frame Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="3" CornerRadius="25" HasShadow="False" BorderColor="Black">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button FontSize="25" Text="Add New Item" TextColor="Blue" WidthRequest="250" Clicked="AddItemClicked"/>
+            <Button x:Name="AddIcon"
+                    Text="&#xf055;"
+                    TextColor="Blue"
+                    FontSize="30"
+                    Clicked="AddItemClicked">
+                    
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Android="FontAwesome5Solid.ttf#Font Awesome 5 Solid"
+                                iOS="Font Awesome 5 Solid"/>
+                </Button.FontFamily>
+                    
+            </Button>
+
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                      Tapped="AddItemClicked"/>
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+    </Frame>
+    <Frame Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" CornerRadius="25" HasShadow="False" BorderColor="Black">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button FontSize="25" Text="Box Stats" TextColor="Blue" WidthRequest="250" Clicked="BoxStatsClicked"/>
+            <Button x:Name="BoxIcon"
+                    Text="&#xf49e;"
+                    TextColor="Blue"
+                    FontSize="30"
+                    Clicked="BoxStatsClicked"
+                    >
+                    
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Android="FontAwesome5Solid.ttf#Font Awesome 5 Solid"
+                                iOS="Font Awesome 5 Solid"/>
+                </Button.FontFamily>
+                    
+            </Button>
+        </StackLayout>
+    </Frame>
+    <Frame Grid.Row=" 9" Grid.Column="1" HasShadow="False" BorderColor="Black" >
+        <Button x:Name="LogoutButton"  TextColor="Blue" Text="Logout" FontSize="20" Clicked="OnLogoutClicked" />
+    </Frame>
+</Grid>
+    </ContentPage.Content>
+</ContentPage>
