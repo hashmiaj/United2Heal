@@ -20,6 +20,13 @@ namespace United2Heal.Views
             DisplayLoadingScreen();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            GroupListView.SelectionMode = ListViewSelectionMode.Single;
+
+        }
+
         public async Task DisplayLoadingScreen()
         {
             LoadingIcon.IsRunning = true;
@@ -43,10 +50,15 @@ namespace United2Heal.Views
 
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var listView = (ListView)sender;
-            string selectedGroup = e.SelectedItem.ToString();
+            if (e.SelectedItem != null)
+            {
+                var listView = (ListView)sender;
+                string selectedGroup = e.SelectedItem.ToString();
 
-            await Navigation.PushAsync(new BoxNumbersList(selectedGroup));
+                GroupListView.SelectionMode = ListViewSelectionMode.None;
+                await Navigation.PushAsync(new BoxNumbersList(selectedGroup));
+
+            }
         }
     }
 

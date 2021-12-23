@@ -23,6 +23,13 @@ namespace United2Heal.Views
             
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ItemListView.SelectionMode = ListViewSelectionMode.Single;
+
+        }
+
         public async Task DisplayLoadingScreen()
         {
             LoadingIcon.IsRunning = true;
@@ -54,19 +61,23 @@ namespace United2Heal.Views
 
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            String itemName = (String)e.SelectedItem;
-            Item item = new Item();
-            item.name = itemName;
-
-            for(int i = 0; i < ViewModel.Items.Count; i++)
+            if(e.SelectedItem != null)
             {
-                if(itemName.Equals(ViewModel.Items[i].name))
-                {
-                    item.id = ViewModel.Items[i].id;
-                }
-            }
+                String itemName = (String)e.SelectedItem;
+                Item item = new Item();
+                item.name = itemName;
 
-            Navigation.PushAsync(new ItemPage(item));
+                for (int i = 0; i < ViewModel.Items.Count; i++)
+                {
+                    if (itemName.Equals(ViewModel.Items[i].name))
+                    {
+                        item.id = ViewModel.Items[i].id;
+                    }
+                }
+
+                ItemListView.SelectionMode = ListViewSelectionMode.None;
+                await Navigation.PushAsync(new ItemPage(item));
+            }
         }
     }
 }

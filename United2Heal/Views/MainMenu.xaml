@@ -30,7 +30,7 @@
     <Label  x:Name="GroupLabel" Text="Group:" Grid.Column="1" Grid.Row="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="25" FontAttributes="Bold"
             Grid.ColumnSpan="3"/>
     <Frame Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" CornerRadius="25" HasShadow="False" BorderColor="Black">
-        <StackLayout Orientation="Horizontal">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <Button FontSize="25" Text="Search Item List" TextColor="Blue" WidthRequest="250" Clicked="SearchItemListClicked"/>
             <Button x:Name="SearchIcon"
                     Text="&#xf002;"
@@ -54,7 +54,7 @@
 
     </Frame>
     <Frame Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="3" CornerRadius="25" HasShadow="False" BorderColor="Black">
-        <StackLayout Orientation="Horizontal">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <Button FontSize="25" Text="Add New Item" TextColor="Blue" WidthRequest="250" Clicked="AddItemClicked"/>
             <Button x:Name="AddIcon"
                     Text="&#xf055;"
@@ -77,7 +77,7 @@
         </StackLayout>
     </Frame>
     <Frame Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" CornerRadius="25" HasShadow="False" BorderColor="Black">
-        <StackLayout Orientation="Horizontal">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <Button FontSize="25" Text="Box Stats" TextColor="Blue" WidthRequest="250" Clicked="BoxStatsClicked"/>
             <Button x:Name="BoxIcon"
                     Text="&#xf49e;"

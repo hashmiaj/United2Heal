@@ -37,7 +37,7 @@
                                     <constraint id="11815" firstItem="3100" firstAttribute="height" constant="21"/>
                                 </constraints>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7513" translatesAutoresizingMaskIntoConstraints="NO" image="U2H Pic.jpeg" highlightedImage="U2H Pic.jpeg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7513" translatesAutoresizingMaskIntoConstraints="NO" image="U2H Pic.jpeg" highlightedImage="U2H Pic.jpeg" adjustsImageSizeForAccessibilityContentSizeCategory="YES">
                                 <rect key="frame" x="83" y="174" width="209" height="222"/>
                                 <constraints>
                                     <constraint id="12450" firstItem="7513" firstAttribute="height" constant="222"/>
@@ -50,10 +50,10 @@
                             <constraint id="2721" firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="323" secondAttribute="bottom" constant="67"/>
                             <constraint id="11561" firstItem="Ze5-6b-2t3" firstAttribute="trailingMargin" secondItem="3100" secondAttribute="trailing" constant="16"/>
                             <constraint id="11688" firstItem="3100" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="16"/>
-                            <constraint id="11942" firstItem="3100" firstAttribute="top" secondItem="7513" secondAttribute="bottom" constant="13"/>
                             <constraint id="12069" firstItem="Ze5-6b-2t3" firstAttribute="trailingMargin" secondItem="7513" secondAttribute="trailing" constant="67"/>
                             <constraint id="12196" firstItem="7513" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="67"/>
                             <constraint id="12323" firstItem="7513" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="154"/>
+                            <constraint id="12890" firstItem="323" firstAttribute="top" secondItem="3100" secondAttribute="bottom" constant="294"/>
                         </constraints>
                     </view>
                 </viewController>

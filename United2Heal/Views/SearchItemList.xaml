@@ -16,7 +16,8 @@
             <SearchBar x:Name="ItemSearchBar" TextChanged="SearchBarTextChanged"/>
             <ListView x:Name="ItemListView"
                       HasUnevenRows="False"
-                      ItemSelected="OnItemSelected">
+                      ItemSelected="OnItemSelected"
+                      SelectionMode="Single">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

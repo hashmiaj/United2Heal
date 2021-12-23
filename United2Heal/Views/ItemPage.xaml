@@ -47,7 +47,7 @@
 
    </Frame>
             <Frame x:Name="ExpFrame" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black">
-       <StackLayout Orientation="Horizontal" Spacing="50">
+       <StackLayout Orientation="Horizontal" Spacing="40">
        <Label Text="Expiration" FontSize="15" VerticalOptions="Center" HorizontalTextAlignment="Start" WidthRequest="150"/>
            <Label VerticalOptions="Center" x:Name="CheckBox" Text="&#xf0c8;" FontSize="30" TextColor="LightGray">
                <Label.FontFamily>
@@ -58,6 +58,12 @@
                <Label.GestureRecognizers>
                    <TapGestureRecognizer NumberOfTapsRequired="1"
                                          Tapped="CheckBoxClicked"/>
+               </Label.GestureRecognizers>
+           </Label>
+           <Label x:Name="RemoveButton" Text="Remove" TextColor="Gray" IsVisible="False" FontSize="10" VerticalOptions="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start">
+               <Label.GestureRecognizers>
+                   <TapGestureRecognizer NumberOfTapsRequired="1"
+                                         Tapped="RemovedBoxClicked"/>
                </Label.GestureRecognizers>
            </Label>
            </StackLayout>
