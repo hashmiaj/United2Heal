@@ -25,6 +25,7 @@ namespace United2Heal.Views
             {
                 Pic.Source = "GMULogo.jpg";
             }
+            //hi saniyah was here
         }
 
         public async Task DisplayLoadingScreen()
