@@ -11,6 +11,8 @@ namespace United2Heal.Utilities
 
         public static String GroupName = "";
 
+        public static String UserRole = "";
+
         public static DatePicker datePicker = new DatePicker();
 
         public static bool isPicked = false;

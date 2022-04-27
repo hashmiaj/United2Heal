@@ -9,22 +9,26 @@
           BackgroundColor="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="20*"/>
-            <RowDefinition Height="20*"/>
+            <RowDefinition Height="18*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="70*"/>
             <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
         <Frame x:Name="WelcomeFrame"
                HasShadow="False"
                BorderColor="Black"
-               Grid.Row="1"
-               Grid.Column="1">
+               Grid.Row="3"
+               Grid.Column="1"
+               Grid.ColumnSpan="2">
             <Label x:Name="WelcomeTitle"
                    Text="Welcome!"
                    TextColor="Black"
@@ -39,12 +43,14 @@
                FontSize="30"
                HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"
-               Grid.Row="2"
-               Grid.Column="1"/>
+               Grid.Row="4"
+               Grid.Column="1"
+               Grid.ColumnSpan="2"/>
         <Frame HasShadow="False"
                BorderColor="Black"
-               Grid.Row="3"
+               Grid.Row="5"
                Grid.Column="1"
+               Grid.ColumnSpan="2"
                CornerRadius="20"
                Margin="15"
                Padding="0"
@@ -57,8 +63,9 @@
         </Frame>
         <Frame HasShadow="False"
                BorderColor="Green"
-               Grid.Row="4"
+               Grid.Row="6"
                Grid.Column="1"
+               Grid.ColumnSpan="2"
                CornerRadius="20"
                Margin="15"
                Padding="0"
@@ -68,6 +75,28 @@
                          BackgroundColor="White"
                          Aspect="Fill"
                          Clicked="OnGMULogoClicked"/>
-        </Frame>    
+        </Frame>
+        <Button x:Name="UserRoleIcon"
+                    Text="&#xf007;"
+                    TextColor="Black"
+                    FontSize="30"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Clicked="OnAdminButtonClicked">   
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Android="FontAwesome5Solid.ttf#Font Awesome 5 Solid"
+                                iOS="Font Awesome 5 Solid"/>
+                </Button.FontFamily>
+               
+                    
+            </Button>
+            <Label  x:Name="UserRoleLabel" Text="Volunteer" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                    HorizontalTextAlignment="Center" VerticalTextAlignment="Start" VerticalOptions = "Center"
+                    FontSize="12" FontAttributes="Bold"
+                    TextColor="Black"/>
     </Grid>
 </ContentPage>

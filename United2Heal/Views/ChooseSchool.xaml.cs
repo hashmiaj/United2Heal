@@ -17,6 +17,7 @@ namespace United2Heal.Views
             InitializeComponent();
             ViewModel = new ChooseSchoolViewModel();
             Title = "United2Heal";
+            GlobalVariables.UserRole = "Volunteer";
         }
 
         private async void OnVCULogoClicked(object sender, EventArgs e)
@@ -29,6 +30,24 @@ namespace United2Heal.Views
         {
             GlobalVariables.SchoolName = "GMU";
             await Navigation.PushAsync(new Login());
+        }
+
+        private async void OnAdminButtonClicked(object sender, EventArgs e)
+        {
+            if(GlobalVariables.UserRole == "Volunteer"){
+                UserRoleIcon.Text = "\uf4fc";
+                UserRoleIcon.TextColor = Color.Green;
+                UserRoleLabel.Text = "Admin";
+                GlobalVariables.UserRole = "Admin";
+            }
+            else
+            {
+                UserRoleIcon.Text = "\uf007";
+                UserRoleIcon.TextColor = Color.Black;
+                UserRoleLabel.Text = "Volunteer";
+                GlobalVariables.UserRole = "Volunteer";
+            }
+
         }
     }
 }
