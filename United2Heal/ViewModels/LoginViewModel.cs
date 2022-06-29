@@ -10,6 +10,7 @@ using System.Net.Http.Headers;
 using United2Heal.Utilities;
 using System.ComponentModel;
 using System.Linq;
+using MySql.Data.MySqlClient;
 
 namespace United2Heal.ViewModels
 {
@@ -17,6 +18,19 @@ namespace United2Heal.ViewModels
     {
         private List<Box> boxes;
 
+        private string password;
+        public string Password
+        {
+            get { return password; }
+            set
+            {
+                if (password != value)
+                {
+                    password = value;
+                    OnPropertyChanged("password");
+                }
+            }
+        }
         //Observable Collections are just lists that make it easier to pass it along from View Model to View.
         //This specific variable is our list of 'groups' for our Group Picker in the Login View.
         private List<string> availableGroups;
@@ -25,7 +39,7 @@ namespace United2Heal.ViewModels
             get { return availableGroups; }
             set
             {
-                if(availableGroups != value)
+                if (availableGroups != value)
                 {
                     availableGroups = value;
                     OnPropertyChanged("availableGroups");
@@ -129,7 +143,32 @@ namespace United2Heal.ViewModels
             AvailableGroups = new List<string>(AvailableGroups.OrderBy(i => i));
 
             LoadingGroups = false;
-            
+
+        }
+        public async Task LoadPasswords()
+        {
+            string connsqlstring = "Server=united2heal.cxsnwexuvrto.us-east-1.rds.amazonaws.com;Port=3306;database=u2hdb;User Id=united2heal;Password=ilovevcu123;charset=utf8";
+
+            using (MySqlConnection connection = new MySqlConnection(connsqlstring))
+            {
+                connection.Open();
+                string queryPassword = "select Password from u2hdb.PasswordTable where School = '" + GlobalVariables.SchoolName + "' " +
+                    "and Role = '" + GlobalVariables.UserRole + "'";
+
+                using (MySqlCommand command = new MySqlCommand(queryPassword, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Password = reader.GetString(0);
+                        }
+                        reader.Close();
+                    }
+                }
+                connection.Close();
+            }
+
         }
     }
 }

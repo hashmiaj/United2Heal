@@ -40,6 +40,7 @@ namespace United2Heal.Views
             SubmitButton.Opacity = 0.1;
 
             await ViewModel.LoadGroups();
+            await ViewModel.LoadPasswords();
             while (ViewModel.LoadingGroups)
             {
                 await Task.Delay(100);
@@ -60,22 +61,12 @@ namespace United2Heal.Views
         public async void Submit_Clicked(Object sender, EventArgs e)
         {
             bool CorrectPass = false;
-            if(GlobalVariables.SchoolName.Equals("VCU"))
+            
+            if (!string.IsNullOrEmpty(PasswordBox.Text) && PasswordBox.Text.Equals(ViewModel.Password))
             {
-                if(!string.IsNullOrEmpty(PasswordBox.Text) && PasswordBox.Text.Equals("united"))
-                {
-                    CorrectPass = true;
-                }
+                CorrectPass = true;
             }
-            if(GlobalVariables.SchoolName.Equals("GMU"))
-            {
-                if(!string.IsNullOrEmpty(PasswordBox.Text) && PasswordBox.Text.Equals("u2hgmu"))
-                {
-                    CorrectPass = true;
-                }
-            }
-
-            if(GroupPicker.SelectedIndex == -1)
+                if (GroupPicker.SelectedIndex == -1)
             {
                 await DisplayAlert("Select a group!", "Please select a group to continue.", "Okay");
                 return;
