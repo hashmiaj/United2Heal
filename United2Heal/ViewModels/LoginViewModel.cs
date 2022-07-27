@@ -93,55 +93,24 @@ namespace United2Heal.ViewModels
         public async Task LoadGroups()
         {
             LoadingGroups = true;
-
-            availableGroups.Clear();
-
-            HttpClient client = new HttpClient();
-
-            var authData = GlobalVariables.SchoolName.Equals("VCU") ? string.Format("{0}:{1}", "VCU", "united") : string.Format("{0}:{1}", "GMU", "u2hgmu");
-            var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
-
-            Uri uri = new Uri(String.Format("https://u2h.herokuapp.com/api/v1.0/VCU/boxes"));
-
-            if (GlobalVariables.SchoolName.Equals("VCU"))
+            string connectionstring = "Server=united2heal.cxsnwexuvrto.us-east-1.rds.amazonaws.com;Port=3306;database=u2hdb;User Id=united2heal;Password=ilovevcu123;charset=utf8";
+            using (MySqlConnection connection = new MySqlConnection(connectionstring))
             {
-                uri = new Uri(String.Format("https://u2h.herokuapp.com/api/v1.0/VCU/boxes"));
-            }
-            if (GlobalVariables.SchoolName.Equals("GMU"))
-            {
-                uri = new Uri(String.Format("https://u2h.herokuapp.com/api/v1.0/GMU/boxes"));
-            }
-
-            var response = await client.GetAsync(uri);
-
-            if (response.IsSuccessStatusCode)
-            {
-                String content = await response.Content.ReadAsStringAsync();
-                boxes = new List<Box>();
-
-                BoxResults boxResults = JsonConvert.DeserializeObject<BoxResults>(content);
-
-                for (int i = 0; i < boxResults.Boxes.Count; i++)
+                connection.Open();
+                String queryGroup = "select distinct GroupName from u2hdb.BoxTable where School = '" + GlobalVariables.SchoolName + "' and isOpen = " + 1 + " Order by GroupName";
+                using (MySqlCommand command = new MySqlCommand(queryGroup, connection))
                 {
-                    boxes.Add(boxResults.Boxes[i]);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            AvailableGroups.Add(reader["GroupName"].ToString()); ;
+                        }
+                        reader.Close();
+                    }
                 }
-
+                connection.Close();
             }
-
-            //These Lines 84-91 are going to be gone once we get the correct data from our API. 
-            HashSet<String> boxSet = new HashSet<string>();
-            for (int i = 0; i < boxes.Count; i++)
-            {
-                if (!boxSet.Contains(boxes[i].group) && boxes[i].is_open.Equals("1") && boxes[i].School.Equals(GlobalVariables.SchoolName))
-                {
-                    boxSet.Add(boxes[i].group);
-                    AvailableGroups.Add(boxes[i].group);
-                }
-            }
-
-            AvailableGroups = new List<string>(AvailableGroups.OrderBy(i => i));
-
             LoadingGroups = false;
 
         }
