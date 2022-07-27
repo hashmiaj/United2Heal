@@ -31,7 +31,7 @@
         <Frame x:Name="TextFrame" HasShadow="False" Grid.Row="4" Grid.Column="1" BorderColor="Black" Margin="10" CornerRadius="20">
             <Entry x:Name="PasswordBox" Placeholder="Enter Password" IsPassword="True" />
         </Frame>
-        <Frame Grid.Column="1" Grid.Row="5" BorderColor="Black" HasShadow="False" Margin="10">
+        <Frame x:Name="SubmitFrame" Grid.Column="1" Grid.Row="5" BorderColor="Black" HasShadow="False" Margin="10">
         <Button x:Name="SubmitButton" BorderColor="Black" Text="Submit"  TextColor="Blue" Clicked="Submit_Clicked" FontSize="30" />
             </Frame>
         <ActivityIndicator x:Name="LoadingIcon" IsRunning="False" Grid.ColumnSpan="3" Grid.RowSpan="7" WidthRequest="100" HeightRequest="100" IsVisible="False"/>

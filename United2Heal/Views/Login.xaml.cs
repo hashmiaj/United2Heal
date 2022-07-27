@@ -25,6 +25,13 @@ namespace United2Heal.Views
             {
                 Pic.Source = "GMULogo.jpg";
             }
+
+            if (GlobalVariables.UserRole.Equals("Admin"))
+            {
+                GroupFrame.IsVisible = false;
+                Grid.SetRow(TextFrame, 3);
+                Grid.SetRow(SubmitFrame, 4);
+            }
             //hi saniyah was here
         }
 
@@ -39,11 +46,16 @@ namespace United2Heal.Views
             TextFrame.Opacity = 0.1;
             SubmitButton.Opacity = 0.1;
 
-            await ViewModel.LoadGroups();
+            if (GlobalVariables.UserRole.Equals("Volunteer"))
+            {
+                await ViewModel.LoadGroups();
+            }
             await ViewModel.LoadPasswords();
             while (ViewModel.LoadingGroups)
             {
                 await Task.Delay(100);
+                if (GlobalVariables.UserRole.Equals("Admin"))
+                    break;
             }
 
             GroupPicker.ItemsSource = ViewModel.AvailableGroups;
