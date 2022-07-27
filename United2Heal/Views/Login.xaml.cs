@@ -75,7 +75,14 @@ namespace United2Heal.Views
             if(CorrectPass && (GroupPicker.SelectedIndex != -1))
             {
                 GlobalVariables.GroupName = ViewModel.AvailableGroups[GroupPicker.SelectedIndex];
-                await Navigation.PushAsync(new MainMenu());
+                if (GlobalVariables.UserRole == "Volunteer")
+                {
+                    await Navigation.PushAsync(new MainMenu());
+                }
+                else
+                {
+                    await Navigation.PushAsync(new AdminMainMenu());
+                }
             }
             else
             {
