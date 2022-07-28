@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
 
 namespace United2Heal.Views
@@ -10,6 +9,8 @@ namespace United2Heal.Views
         public AdminMainMenu()
         {
             InitializeComponent();
+            
         }
     }
+    
 }
