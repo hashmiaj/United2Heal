@@ -33,15 +33,16 @@
         <RowDefinition Height="3*"/>
     </Grid.RowDefinitions>
     <Frame Grid.Row="1" Grid.Column="2" Padding="0" Grid.ColumnSpan="4" HasShadow="False" BorderColor="Black">
-        <Image x:Name="SchoolPicture" Source="VCULogo.jpg" Aspect="Fill"/>
+        <Image x:Name="SchoolPicture" Aspect="Fill"/>
     </Frame>
     <Frame Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" HasShadow="False" BorderColor="Black">
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Button FontSize="15" Text="Open New Box" TextColor="Blue" WidthRequest="155"/>
+            <Button FontSize="15" Text="Open New Box" TextColor="Blue" WidthRequest="150" Clicked= "OnOpenNewBoxClicked"/>
             <Button x:Name="BoxOpen"
                     Text="&#xf49e;"
                     TextColor="Blue"
-                    FontSize="20">
+                    FontSize="20"
+                    Clicked="OnOpenNewBoxClicked">
                     
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String"
@@ -54,7 +55,7 @@
     </Frame>
     <Frame Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" CornerRadius="5" HasShadow="False" BorderColor="Black">
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Button FontSize="15" Text="Close Box" TextColor="Blue" WidthRequest="155"/>
+            <Button FontSize="15" Text="Close Box" TextColor="Blue" WidthRequest="150"/>
             <Button x:Name="BoxClose"
                     Text="&#xf466;"
                     TextColor="Blue"
@@ -71,7 +72,7 @@
     </Frame>
     <Frame Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="2" CornerRadius="5" HasShadow="False" BorderColor="Black">
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Button FontSize="15" Text="Open Existing Box" TextColor="Blue" WidthRequest="155"/>
+            <Button FontSize="15" Text="Open Existing Box" TextColor="Blue" WidthRequest="150"/>
             <Button x:Name="BoxIcon"
                     Text="&#xf49e;"
                     TextColor="Blue"
@@ -88,7 +89,7 @@
      </Frame>
     <Frame Grid.Row="9" Grid.Column="3" Grid.ColumnSpan="2" CornerRadius="5" HasShadow="False" BorderColor="Black">
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Button FontSize="15" Text="Change Password" TextColor="Blue" WidthRequest="155"/>
+            <Button FontSize="15" Text="Change Password" TextColor="Blue" WidthRequest="150"/>
             <Button x:Name="Key"
                     Text="&#xf084;"
                     TextColor="Blue"
@@ -105,7 +106,7 @@
      </Frame>
         <Frame Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="2" CornerRadius="5" HasShadow="False" BorderColor="Black">
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Button FontSize="15" Text="Edit Box Stats" TextColor="Blue" WidthRequest="155"/>
+            <Button FontSize="15" Text="Edit Box Stats" TextColor="Blue" WidthRequest="150"/>
             <Button x:Name="Chart"
                     Text="&#xf201;"
                     TextColor="Blue"
@@ -121,7 +122,7 @@
         </StackLayout>
      </Frame>
     <Frame Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="3" HasShadow="False" BorderColor="Black" >
-        <Button x:Name="LogoutButton"  TextColor="Blue" Text="Logout" FontSize="15"/>
+        <Button x:Name="LogoutButton"  TextColor="Blue" Text="Logout" FontSize="15" Clicked= "OnLogoutClicked" />
     </Frame>
             <Button x:Name="Admin"
                     Text="&#xf4fc;"

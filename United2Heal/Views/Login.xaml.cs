@@ -73,22 +73,25 @@ namespace United2Heal.Views
         public async void Submit_Clicked(Object sender, EventArgs e)
         {
             bool CorrectPass = false;
-            
+            String pass = ViewModel.Password;
+            String text = PasswordBox.Text;
+
             if (!string.IsNullOrEmpty(PasswordBox.Text) && PasswordBox.Text.Equals(ViewModel.Password))
             {
                 CorrectPass = true;
             }
-                if (GroupPicker.SelectedIndex == -1)
+            if (GroupPicker.SelectedIndex == -1 && GlobalVariables.UserRole == "Volunteer")
             {
                 await DisplayAlert("Select a group!", "Please select a group to continue.", "Okay");
                 return;
             }
 
-            if(CorrectPass && (GroupPicker.SelectedIndex != -1))
+            if ((CorrectPass && (GroupPicker.SelectedIndex != -1) && (GlobalVariables.UserRole == "Volunteer")) ||
+            (CorrectPass && (GlobalVariables.UserRole == "Admin")))
             {
-                GlobalVariables.GroupName = ViewModel.AvailableGroups[GroupPicker.SelectedIndex];
                 if (GlobalVariables.UserRole == "Volunteer")
                 {
+                    GlobalVariables.GroupName = ViewModel.AvailableGroups[GroupPicker.SelectedIndex];
                     await Navigation.PushAsync(new MainMenu());
                 }
                 else

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="United2Heal.Views.OpenNewBoxPage">
+    <ContentPage.Content>
+<Grid x:Name="Grid" RowSpacing="0" ColumnSpacing="0" BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="15*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+
+        <Frame x:Name="SelectGroup" HasShadow="False" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+            <Label x:Name="GroupSelection" Text="Select Group" TextColor="Black" FontSize="30" FontAttributes="Bold"
+             HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"/>
+        </Frame>
+        <Frame x:Name="GroupFrame" HasShadow="False" Grid.Column="2" Grid.Row="2" BorderColor="Black">
+            <Picker x:Name="GroupPicker" Grid.Column="1"/>
+        </Frame>
+        <Frame x:Name="BoxNumber" HasShadow="False" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3">
+            <Label x:Name="BoxID" Text="Box Number" TextColor="Black" FontSize="30" FontAttributes="Bold"
+             HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"/>
+        </Frame>
+        <Frame x:Name="Box" Grid.Column="2" Grid.Row="5" HasShadow="False" BorderColor="Black" >
+            <Label x:Name="BoxLabel" Text="TBD" TextColor="Red" FontSize="30" 
+             HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"/>
+            </Frame>
+        <Frame x:Name="SubmitFrame" Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="3" BorderColor="Black" HasShadow="False">
+        <Button x:Name="SubmitButton" BorderColor="Black" Text="Submit" TextColor="Blue" FontSize="30" />
+            </Frame>
+
+    </Grid>
+    </ContentPage.Content>
+</ContentPage>
