@@ -23,6 +23,14 @@ namespace United2Heal.Views
         {
             await Navigation.PushAsync(new OpenNewBoxPage());
         }
+        public async void OnCloseBoxClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CloseBoxPage());
+        }
+        public async void OnOpenExistingBoxClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new OpenExistingBoxPage());
+        }
         public async void OnLogoutClicked(object sender, EventArgs e)
         {
             GlobalVariables.SchoolName = "";

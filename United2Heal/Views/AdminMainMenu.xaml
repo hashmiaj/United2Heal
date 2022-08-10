@@ -55,11 +55,12 @@
     </Frame>
     <Frame Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" CornerRadius="5" HasShadow="False" BorderColor="Black">
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Button FontSize="15" Text="Close Box" TextColor="Blue" WidthRequest="150"/>
+            <Button FontSize="15" Text="Close Box" TextColor="Blue" WidthRequest="150" Clicked="OnCloseBoxClicked"/>
             <Button x:Name="BoxClose"
                     Text="&#xf466;"
                     TextColor="Blue"
-                    FontSize="20">
+                    FontSize="20"
+                    Clicked="OnCloseBoxClicked">
                     
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String"
@@ -72,11 +73,13 @@
     </Frame>
     <Frame Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="2" CornerRadius="5" HasShadow="False" BorderColor="Black">
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Button FontSize="15" Text="Open Existing Box" TextColor="Blue" WidthRequest="150"/>
+            <Button FontSize="15" Text="Open Existing Box" TextColor="Blue" WidthRequest="150"
+                    Clicked="OnOpenExistingBoxClicked"/>
             <Button x:Name="BoxIcon"
                     Text="&#xf49e;"
                     TextColor="Blue"
-                    FontSize="20">                    
+                    FontSize="20"
+                    Clicked="OnOpenExistingBoxClicked">                    
                     
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String"
